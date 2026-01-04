@@ -3,6 +3,7 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { join } from 'path'
 import { parse } from 'csv-parse/sync'
+import { readFileSync } from 'fs'
 
 export interface LoginData {
     username: string;
@@ -14,13 +15,13 @@ export interface LoginData {
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-export const readFileFromCsv = async (): Promise<LoginData[]> => {
+export const readFileFromCsv = (): LoginData[] => {
     //B1: xac1 d9inh duong dan toi file csv
     //../data/login-data.csv 
     //_dirname: xac dinh path cua file hien tai (csvreader.ts)
     const csvPath = join(__dirname, '..', 'data', 'login-data.csv')
     //B2: doc file 
-    const fileContent = await readFile(csvPath)
+    const fileContent = readFileSync(csvPath)
     //B3: parse data string => list Logindata 
     const data = parse(fileContent,{
         columns: true,// lay dong dau lam hreser, lam key

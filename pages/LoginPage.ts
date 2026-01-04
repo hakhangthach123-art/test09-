@@ -17,6 +17,7 @@ export class LoginPage {
 
     async login(username: string, password:string): Promise<void>{
         //B1: navigate vao web page login
+        await this.page.waitForTimeout(3000)
         await this.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         //B2: fill username vao input
         await this.usernameInput.fill(username)
