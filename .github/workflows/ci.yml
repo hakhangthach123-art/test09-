@@ -1,0 +1,27 @@
+name: CI - chay test 
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  test: # define step test 
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+
+        - name: Setup Nude.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+            cache: 'npm'
+
+        - name: Install dependensies
+          run: npm install
+
+        - name: Install playwright browsers
+          run: npx playwright install --with-deps
+
+        - name: Run playwright test
+          run: npx playwright test
+      

@@ -13,7 +13,10 @@
     "test:login": "playwright test tests/login.spec.ts --project=chromium --headed",
     "test:login-data": "playwright test tests/login-data.spec.ts --project=chromium --headed",
     "test:home": "playwright test tests/home.spec.ts --project=chromium --headed",
-    "test:myinfo": "playwright test tests/myinfo.spec.ts --project=chromium --headed"
+    "test:myinfo": "playwright test tests/myinfo.spec.ts --project=chromium --headed",
+    "test:mobile": "playwright test tests/mobile.spec.ts --project=chromium --headed ",
+    "test:getbyRole":"playwright test tests/getbyRole.spec.ts --project=chromium --headed",
+    "test:api": "playwright test tests/testAPI.spec.ts --project=chromium --headed"
   },
   "keywords": [],
   "author": "",
